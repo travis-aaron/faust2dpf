@@ -8,7 +8,7 @@
 # Installation directories
 
 DISTRHO_PLUGIN_URI = $(shell grep DISTRHO_PLUGIN_URI DistrhoPluginInfo.h | cut -d '"' -f 2)
-FAUST_DSP_DIR ?= /home/travis-aaron/DISTRHO/DPF/examples/faust2dpf/faust
+FAUST_DSP_DIR ?= /home/travis-aaron/faust2dpf/faust
 
 PREFIX ?= /usr/local
 BINDIR ?= $(PREFIX)/bin
@@ -73,7 +73,7 @@ FILES_DSP = \
 # --------------------------------------------------------------
 # Do some magic
 
-include ../../Makefile.plugins.mk
+include /DPF/Makefile.plugins.mk
 
 # --------------------------------------------------------------
 # Enable all selected plugin types
