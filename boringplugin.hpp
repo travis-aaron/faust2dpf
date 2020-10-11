@@ -29,32 +29,32 @@ class BoringPlugin : public Plugin {
 public:
 
 enum Parameters {
-   paramFreq
-   paramGate
+   paramFreq,
+   paramGate,
    paramGain
    };
-   PluginBoring();
-    ~PluginBoring();
+   BoringPlugin();
+    ~BoringPlugin();
 
 
    /* --------------------------------------------------------------------------------------------------------
     * Information */
 
-    const char* getLabel() const noexcept override{
+    const char* getLabel() const noexcept {
       return "Boring";
       }
    /**
       Get an extensive comment/description about the plugin.@n
       Optional, returns nothing by default.
     */
-    const char* getDescription() const override {
+    const char* getDescription() const {
     return "An lv2 template for creating UIs";
      }
 
    /**
       Get the plugin author/maker.
     */
-    const char* getMaker() const noexcept override {
+    const char* getMaker() const noexcept {
     return "travis-aaron";
     }
 
@@ -62,7 +62,7 @@ enum Parameters {
       Get the plugin homepage.@n
       Optional, returns nothing by default.
     */
-    const char* getHomePage() const override{
+    const char* getHomePage() const {
       return DISTRHO_PLUGIN_URI;
       }
 
@@ -70,11 +70,11 @@ enum Parameters {
       Get the plugin license (a single line of text or a URL).@n
       For commercial plugins this should return some short copyright information.
     */
-    const char* getLicense() const noexcept override{
+    const char* getLicense() const noexcept {
     return "https://spdx.org/licenses/MIT";
     }
 
-    uint32_t getVersion() const noexcept override{
+    uint32_t getVersion() const noexcept {
       return d_version(1, 0, 0);
       }
    /**
@@ -82,7 +82,7 @@ enum Parameters {
       This value is used by LADSPA, DSSI and VST plugin formats.
       @see d_cconst()
     */
-    int64_t getUniqueId() const noexcept override{
+    int64_t getUniqueId() const noexcept{
     return d_cconst('Z', 'a', 'K', 'b');
     }
 
@@ -90,7 +90,7 @@ enum Parameters {
     * Init */
 
 
-    void initParameter(uint32_t index, Parameter& parameter) override;
+    void initParameter(uint32_t index, Parameter& parameter);
 
    /* --------------------------------------------------------------------------------------------------------
     * Internal data */
@@ -99,7 +99,7 @@ enum Parameters {
       Get the current value of a parameter.@n
       The host may call this function from any context, including realtime processing.
     */
-  float getParameterValue(uint32_t index) const override;
+  float getParameterValue(uint32_t index) const;
 
    /**
       Change a parameter value.@n
@@ -107,7 +107,7 @@ enum Parameters {
       When a parameter is marked as automable, you must ensure no non-realtime operations are performed.
       @note This function will only be called for parameter inputs.
     */
-   void setParameterValue(uint32_t index, float value) override;
+   void setParameterValue(uint32_t index, float value);
 
    /* --------------------------------------------------------------------------------------------------------
     * Audio/MIDI Processing */
@@ -115,12 +115,12 @@ enum Parameters {
    /**
       Activate this plugin.
     */
-    void activate() override;
+    void activate();
 
    /**
       Deactivate this plugin.
     */
-    void deactivate() override;
+    void deactivate();
 
 #if DISTRHO_PLUGIN_WANT_MIDI_INPUT
    /**
@@ -128,25 +128,22 @@ enum Parameters {
       @note Some parameters might be null if there are no audio inputs/outputs or MIDI events.
     */
     void run(const float** inputs, float** outputs, uint32_t frames,
-                     const MidiEvent* midiEvents, uint32_t midiEventCount) override;
+                     const MidiEvent* midiEvents, uint32_t midiEventCount);
 #else
    /**
       Run/process function for plugins without MIDI input.
       @note Some parameters might be null if there are no audio inputs or outputs.
     */
-    void run(const float** inputs, float** outputs, uint32_t frames) override;
+    void run(const float** inputs, float** outputs, uint32_t frames);
 #endif
 
 
 
-    /*DISTRHO_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(BoringPlugin)
+    DISTRHO_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(BoringPlugin)
 };
 
-/** @} */
 
-/* ------------------------------------------------------------------------------------------------------------
 
-/** @} */
 
 // -----------------------------------------------------------------------------------------------------------
 

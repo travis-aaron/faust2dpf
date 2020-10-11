@@ -8,7 +8,7 @@
 # Installation directories
 
 DISTRHO_PLUGIN_URI = $(shell grep DISTRHO_PLUGIN_URI DistrhoPluginInfo.h | cut -d '"' -f 2)
-FAUST_DSP_DIR ?= /home/travis-aaron/DPF/examples/boring/faust
+FAUST_DSP_DIR ?= /home/travis-aaron/DISTRHO/DPF/examples/faust2dpf/faust
 
 PREFIX ?= /usr/local
 BINDIR ?= $(PREFIX)/bin
@@ -67,7 +67,7 @@ BUILD_LADSPA ?= false
 
 FILES_DSP = \
 	$(FAUST_IDENTIFIER).cpp \
-	boring.cpp
+	boringplugin.cpp
 	
 
 # --------------------------------------------------------------

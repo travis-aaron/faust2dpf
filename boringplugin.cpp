@@ -69,6 +69,11 @@ void BoringPlugin::run(const float** inputs, float** outputs, uint32_t frames) {
     flt->process(inputs[0], outputs[2], (unsigned)frames);
 }
 
+    DISTRHO_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(BoringPlugin)
+};
+
+
+
 // -----------------------------------------------------------------------
 
 Plugin* createPlugin() {
