@@ -29,18 +29,17 @@
 
 #define DISTRHO_PLUGIN_BRAND "travis-aaron"
 #define DISTRHO_PLUGIN_NAME  "Boring"
-#define DISTRHO_PLUGIN_URI   "https://demetrioi.net/boring"
+#define DISTRHO_PLUGIN_URI   "https://goose.net/boring"
 
 #define DISTRHO_PLUGIN_HAS_UI        0
+#define DISTRHO_UI_USE_NANOVG        0
 
 #define DISTRHO_PLUGIN_IS_RT_SAFE       1
 #define DISTRHO_PLUGIN_NUM_INPUTS       0
 #define DISTRHO_PLUGIN_NUM_OUTPUTS      2
 #define DISTRHO_PLUGIN_WANT_PROGRAMS    0
 #define DISTRHO_PLUGIN_IS_SYNTH         1
-#define DISTRHO_PLUGIN_WANT_MIDI_INPUT	1
 #define DISTRHO_PLUGIN_WANT_MIDI_OUTPUT 0
-
 
 #define DISTRHO_PLUGIN_LV2_CATEGORY "lv2:InstrumentPlugin"
 
